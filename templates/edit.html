@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Todo</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Todo</h2>
+    <form method="post" action="/update/{{ todo.id }}">
+        <input type="text" name="title" value="{{ todo.title }}" required>
+        <input type="text" name="description" value="{{ todo.description }}" required>
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

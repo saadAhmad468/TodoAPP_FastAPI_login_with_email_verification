@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Dashboard</h2>
+
+    <form method="post" action="/add">
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+        <li class="todo-item">
+            <span>{{ todo.title }} - {{ todo.description }}</span>
+            <span>
+                <a href="/edit/{{ todo.id }}">Edit</a>
+                <a href="/delete/{{ todo.id }}">Delete</a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+</body>
+</html>
+
+
